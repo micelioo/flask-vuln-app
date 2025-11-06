@@ -16,7 +16,7 @@ pipeline {
 
         stage('Security - Dependency Check') {
             steps {
-                dependencyCheck additionalArguments: '', odcInstallation: 'Default', scanpath: '.'
+                dependencyCheck additionalArguments: '', odcInstallation: 'Default'
                 dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
             }
         }
