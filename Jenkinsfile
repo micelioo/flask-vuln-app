@@ -7,9 +7,17 @@ pipeline {
                 echo 'Compilando/Preparando proyecto...'
             }
         }
+
         stage('Test') {
             steps {
                 echo 'Ejecutando pruebas (placeholder)...'
+            }
+        }
+
+        stage('Security - Dependency Check') {
+            steps {
+                dependencyCheck additionalArguments: '', scanPath: '.', odcInstallation: 'Default'
+                dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
             }
         }
     }
